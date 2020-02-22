@@ -5,17 +5,17 @@ import Dashboard from '../../components/dashboard/Dashboard';
 
 class DashboardContainer extends Component {
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-    }
+  }
 
 
-    render() {
-        return (
-            <Dashboard/>
-        )
-    }
+  render() {
+    return (
+      <Dashboard/>
+    );
+  }
 
 }
 

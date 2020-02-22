@@ -6,18 +6,18 @@ import {reducer as formReducer} from 'redux-form';
 import authReducer from './authReducer';
 
 const appReducer = (history) => combineReducers({
-    router: connectRouter(history),
-    form: formReducer,  // ← redux-form
-    auth: authReducer,
+  router: connectRouter(history),
+  form: formReducer,  // ← redux-form
+  auth: authReducer,
 });
 
 const rootReducer = (state, action) => {
 
-    if (action === 'LOG_OUT_SUCCESS') {
-        state = undefined;
-    }
+  if (action === 'LOG_OUT_SUCCESS') {
+    state = undefined;
+  }
 
-    return appReducer(state, action);
+  return appReducer(state, action);
 };
 
 export default rootReducer;

@@ -11,24 +11,24 @@ import App from './containers/app/AppContainer';
 
 const mountNode = document.getElementById('root');
 const theme = createMuiTheme({
-    typography: {
-        useNextVariants: true,
-    },
-    palette: {
-        primary: blueGrey
-    }
+  typography: {
+    useNextVariants: true,
+  },
+  palette: {
+    primary: blueGrey
+  }
 });
 
 // Used to log in if token is valid
 store.dispatch(verifyToken());
 
 ReactDOM.render(
-    <MuiThemeProvider theme={theme}>
-        <Provider store={store}>
-            <ConnectedRouter history={history}>
-                <App/>
-            </ConnectedRouter>
-        </Provider>
-    </MuiThemeProvider>,
-    mountNode
+  <MuiThemeProvider theme={theme}>
+    <Provider store={store}>
+      <ConnectedRouter history={history}>
+        <App/>
+      </ConnectedRouter>
+    </Provider>
+  </MuiThemeProvider>,
+  mountNode
 );

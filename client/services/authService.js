@@ -7,30 +7,30 @@ import {setLocalStorage, clearLocalStorage} from '../utils/storageUtil';
 
 export const login = ({email, password}) => {
 
-    return dispatch => {
-        axios.post(API_URL + 'auth/login', {email, password}).then((response) => {
+  return dispatch => {
+    axios.post(API_URL + 'auth/login', {email, password}).then((response) => {
 
-            dispatch(loginSuccess(response.data.token));
+      dispatch(loginSuccess(response.data.token));
 
-            setLocalStorage(JWT_TOKEN, response.data.token);
+      setLocalStorage(JWT_TOKEN, response.data.token);
 
-            history.push('/dashboard');
-        })
-            .catch((error) => {
-                dispatch(loginFailure(error.response.data));
-            });
-    };
+      history.push('/dashboard');
+    })
+      .catch((error) => {
+        dispatch(loginFailure(error.response.data));
+      });
+  };
 };
 
 export const logout = () => {
-    return dispatch => {
+  return dispatch => {
 
-        clearLocalStorage(JWT_TOKEN);
+    clearLocalStorage(JWT_TOKEN);
 
-        dispatch(logoutSuccess());
+    dispatch(logoutSuccess());
 
-        history.push('/');
+    history.push('/');
 
-        return false;
-    };
+    return false;
+  };
 };

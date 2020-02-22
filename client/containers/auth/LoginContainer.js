@@ -9,31 +9,31 @@ import LoginForm from '../../components/auth/LoginForm';
 
 class LoginContainer extends Component {
 
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.submitForm = this.submitForm.bind(this);
-    }
+    this.submitForm = this.submitForm.bind(this);
+  }
 
 
-    /**
+  /**
      * Submit the form.
      *
      * @param {object} formProps
      */
-    submitForm(formProps) {
+  submitForm(formProps) {
 
-        this.props.actions.login(formProps);
-    }
+    this.props.actions.login(formProps);
+  }
 
-    render() {
-        return (
-            <LoginForm
-                onSubmit={this.submitForm}
-                errorMessage={this.props.errorMessage}
-            />
-        )
-    }
+  render() {
+    return (
+      <LoginForm
+        onSubmit={this.submitForm}
+        errorMessage={this.props.errorMessage}
+      />
+    );
+  }
 
 }
 
@@ -41,16 +41,16 @@ class LoginContainer extends Component {
  * Map the state to props.
  */
 const mapStateToProps = state => ({
-    token: state.auth.token,
-    isAuthenticated: state.auth.isAuthenticated,
-    errorMessage: state.auth.errorMessage
+  token: state.auth.token,
+  isAuthenticated: state.auth.isAuthenticated,
+  errorMessage: state.auth.errorMessage
 });
 
 /**
  * Map the actions to props.
  */
 const mapDispatchToProps = dispatch => ({
-    actions: bindActionCreators(Object.assign({}, authService), dispatch)
+  actions: bindActionCreators(Object.assign({}, authService), dispatch)
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer)
+export default connect(mapStateToProps, mapDispatchToProps)(LoginContainer);

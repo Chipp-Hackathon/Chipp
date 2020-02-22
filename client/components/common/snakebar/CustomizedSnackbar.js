@@ -11,61 +11,61 @@ import WarningIcon from '@material-ui/icons/Warning';
 import {withStyles} from '@material-ui/core/styles';
 
 const variantIcon = {
-    success: CheckCircleIcon,
-    warning: WarningIcon,
-    error: ErrorIcon,
-    info: InfoIcon,
+  success: CheckCircleIcon,
+  warning: WarningIcon,
+  error: ErrorIcon,
+  info: InfoIcon,
 };
 
 const styles = theme => ({
-    success: {
-        backgroundColor: green[600],
-    },
-    error: {
-        backgroundColor: theme.palette.error.dark,
-    },
-    info: {
-        backgroundColor: theme.palette.primary.dark,
-    },
-    warning: {
-        backgroundColor: amber[700],
-    },
-    icon: {
-        fontSize: 20,
-    },
-    iconVariant: {
-        opacity: 0.9,
-        marginRight: theme.spacing.unit,
-    },
-    message: {
-        display: 'flex',
-        alignItems: 'center',
-    },
+  success: {
+    backgroundColor: green[600],
+  },
+  error: {
+    backgroundColor: theme.palette.error.dark,
+  },
+  info: {
+    backgroundColor: theme.palette.primary.dark,
+  },
+  warning: {
+    backgroundColor: amber[700],
+  },
+  icon: {
+    fontSize: 20,
+  },
+  iconVariant: {
+    opacity: 0.9,
+    marginRight: theme.spacing.unit,
+  },
+  message: {
+    display: 'flex',
+    alignItems: 'center',
+  },
 });
 
 const CustomizedSnackbar  = (props) => {
-    const {classes, className, message, onClose, variant, ...other} = props;
-    const Icon = variantIcon[variant];
+  const {classes, className, message, onClose, variant, ...other} = props;
+  const Icon = variantIcon[variant];
 
-    return (
-        <SnackbarContent
-            className={classNames(classes[variant], className)}
-            aria-describedby="client-snackbar"
-            message={
-                <span id="client-snackbar" className={classes.message}>
+  return (
+    <SnackbarContent
+      className={classNames(classes[variant], className)}
+      aria-describedby="client-snackbar"
+      message={
+        <span id="client-snackbar" className={classes.message}>
           <Icon className={classNames(classes.icon, classes.iconVariant)}/>
-                    {message}
+          {message}
         </span>
-            }
-        />
-    );
-}
+      }
+    />
+  );
+};
 
 CustomizedSnackbar.propTypes = {
-    classes: PropTypes.object.isRequired,
-    className: PropTypes.string,
-    message: PropTypes.node,
-    variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired,
+  classes: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  message: PropTypes.node,
+  variant: PropTypes.oneOf(['success', 'warning', 'error', 'info']).isRequired,
 };
 
 export default withStyles(styles)(CustomizedSnackbar);

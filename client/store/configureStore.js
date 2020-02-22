@@ -11,8 +11,8 @@ export {history};
 const middlewares = [thunkMiddleware, logger, routerMiddleware(history)];
 
 const store = createStore(createRootReducer(history), {}, compose(
-    applyMiddleware(...middlewares)
-    )
+  applyMiddleware(...middlewares)
+)
 );
 
 export default store;

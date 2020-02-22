@@ -15,20 +15,20 @@ import RestrictRoute from './RestrictRoute';
 
 
 const Router = () => (
-    <Fragment>
+  <Fragment>
+    <Switch>
+      <RestrictRoute exact path="/" component={LoginForm}/>
+      <RestrictRoute path="/signup" component={SignUpForm}/>
+
+      <MainLayout>
         <Switch>
-            <RestrictRoute exact path="/" component={LoginForm}/>
-            <RestrictRoute path="/signup" component={SignUpForm}/>
-
-            <MainLayout>
-                <Switch>
-                    <PrivateRoute path="/dashboard" component={Dashboard}/>
-                </Switch>
-            </MainLayout>
-
-            <Route component={NotFound}/>
+          <PrivateRoute path="/dashboard" component={Dashboard}/>
         </Switch>
-    </Fragment>
+      </MainLayout>
+
+      <Route component={NotFound}/>
+    </Switch>
+  </Fragment>
 );
 
 export default Router;
