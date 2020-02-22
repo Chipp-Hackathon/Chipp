@@ -28,7 +28,7 @@
     "webpack",
     "boilerplate"
   ],
-  "author": "Krishna Timilsina <bikranshu.t@gmail.com>",
+  "author": "Oliver Ullman, Christopher Scott, Max Weisner <oliverullman@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "@hapi/joi": "^16.1.8",
